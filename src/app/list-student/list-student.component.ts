@@ -10,34 +10,36 @@ import { StudentServiceService } from '../service/student-service.service';
 })
 export class ListStudentComponent implements OnInit {
 
-  students: Student[] | undefined;
+  public students:any;
 
   constructor(private router: Router, private studentService: StudentServiceService) { }
 
-  getStudent(){
+  private getStudent(){
     this.studentService.getAllStudents()
     .subscribe(data => {
+      console.log(data);
       this.students = data;
+    },err=>{
+      console.log(err);
     });
 
   }
 
-  // addStudent(): void {
-  //   this.router.navigate(['addStudent'])
-  //     .then((e) => {
-  //       if (e) {
-  //         console.log("Navigation is successful!");
-  //       } else {
-  //         console.log("Navigation has failed!");
-  //       }
-  //     });
-  // };
-
-
   ngOnInit(): void {
-    // this.router.events.subscribe(value => {
     this.getStudent();
-  // });
   }
+
+updateStudent(student: Student){
+  this.router.navigateByUrl("/updateStudent/"+student);
+}
+
+onDeleteStudent(id:number){
+  let conf = confirm("Etes vous sure?");
+  if(conf){
+    this.studentService.deleteRessource(id).subscribe( data =>{
+      this.getStudent();
+    });
+  }
+}
 
 }

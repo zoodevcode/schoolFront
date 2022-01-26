@@ -10,13 +10,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListStudentComponent } from './list-student/list-student.component';
 import { AddStudentComponent } from './add-student/add-student.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     ListStudentComponent,
-    AddStudentComponent
+    AddStudentComponent,
+    UpdateStudentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 export class Student{
 
-  id : number | undefined;
+  idStudent!: number;
   nom : string | undefined;
   prenom : string | undefined;
   niveau : string | undefined;

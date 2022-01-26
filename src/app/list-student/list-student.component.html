@@ -11,16 +11,25 @@
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
-          <th>ID</th><th>NOM</th><th>PRENOM</th><th>NIVEAU</th><th>EMAIL</th>
+          <th>NOM</th>
+          <th>PRENOM</th>
+          <th>NIVEAU</th>
+          <th>EMAIL</th>
+          <th>ACTIONS</th>        
         </tr>
       </thead>
+      <tbody>
           <tr *ngFor="let student of students">
-            <td>{{student.id}}</td>
             <td>{{student.nom}}</td>
             <td>{{student.prenom}}</td>
             <td>{{student.niveau}}</td>
             <td>{{student.email}}</td>
+            <td>
+              <button (click) = "updateStudent(student)" class="btn btn-info" >Editer</button>
+              <button (click) = "onDeleteStudent(student.idStudent)" class="btn btn-danger" style="margin-left: 10px;">Supprimer</button>
+            </td>
           </tr>
+      </tbody>
     </table>
   </div>
 </body>
